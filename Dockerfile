@@ -1,8 +1,10 @@
-FROM alpine
+FROM openjdk
+
 WORKDIR /app
-RUN apk add --update nodejs
-RUN apk add --update npm
-RUN npm install express
-COPY test.js .
-CMD node test.js
+
+COPY Test.java .
+
+RUN javac Test.java
+
+CMD java Test
 
